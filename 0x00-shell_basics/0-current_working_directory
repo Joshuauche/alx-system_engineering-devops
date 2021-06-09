@@ -1,2 +1,2 @@
 #!/bin/bash
-_mydir="$(/root/alx-system_engineering-devops/0x00-shell_basicsd)"
+_mydir="$(/root/alx-system_engineering-devops/0x00-shell_basics)"
