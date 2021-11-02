@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# This script is displaying "Best School" 10 times using until
+count=0
+until false
+do
+    echo "Best School"
+    ((count++))
+    if [ "$count" -eq 10 ]
+    then
+        break
+    fi
+done
