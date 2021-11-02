@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # This script is displaying "Best School" 20 times using while loop
-# This script uses case statement
+# This script uses case statement and iterations
 i=1
 while [ $i -le 20 ]
 do
