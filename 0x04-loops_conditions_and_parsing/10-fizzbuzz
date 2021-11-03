@@ -3,7 +3,7 @@
 for (( c=1; c<=100; c++ ))
 do
     # checks if c is a multiple of 3 and 5
-    if [ $((c % 3)) -eq 0 -a $((c % 5)) -eq 0 ]
+    if [ $((c % 3)) -eq 0 ] && [ $((c % 5)) -eq 0 ]
     then
         echo "FizzBuzz"
     # checks if c is a multiple of 3
