@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# This script displays occurence of IP and HTTP status code
+# from the greatest number of occurence to the lowest number
+# using awk
+awk '{print $1,$9}' apache-access.log | sort | uniq -c | sort -r
