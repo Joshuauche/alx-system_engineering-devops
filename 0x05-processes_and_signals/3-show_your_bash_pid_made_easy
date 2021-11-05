@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script displays its own PID using pgrep
+# shellcheck disable=SC2009
+pgrep bash -l
