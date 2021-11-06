@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# This script kills a loop
+# shellcheck disable=SC2009
+# dispalays i am invicible when recieving a SIGTERM SIGNAL
+trap "echo 'I am invincible!!!'" SIGTERM
+while true
+do
+    echo "To infinity and beyond"
+    sleep 2
+done
