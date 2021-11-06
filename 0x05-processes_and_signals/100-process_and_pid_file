@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# shellcheck disable=SC2009
+# dispalays i am invicible when recieving a SIGTERM SIGNAL
+# This script creates the file comtaining its PID
+# this script uses SIGTERM
+# and uses SIGQUIT to delete the file created
+echo $$ > /var/run/myscript.pid
+trap "echo 'I hate the kill command'" SIGTERM
+trap "echo 'Y U no love me?!'" SIGINT
+trap "rm /var/run/myscript.pid" SIGQUIT
+while true
+do
+    echo "To infinity and beyond"
+    sleep 2
+done
