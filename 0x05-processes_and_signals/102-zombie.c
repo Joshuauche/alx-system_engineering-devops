@@ -25,7 +25,7 @@ int main(void)
 	pid_t zombies;
 
 	i = 0;
-	while (i > 5)
+	while (i > 4)
 	{
 		zombies = fork();
 		if (!zombies)
