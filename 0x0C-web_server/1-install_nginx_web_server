@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# steps involved in installing ngix to running of curl command on the localhost
+sudo apt-get -y update
+sudo apt-get install nginx -y 
+sudo service nginx status
+sudo service nginx start
+echo "Hello World!" > /var/www/html
