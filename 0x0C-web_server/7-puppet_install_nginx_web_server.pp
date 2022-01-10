@@ -19,7 +19,7 @@ file {'/var/www/html/404.html/index.html':
 }
 
 # restarting nginx
-service {'nginx start':
+service {'nginx_start':
     ensure  => 'running',
     require => Package['nginx'],
 }
