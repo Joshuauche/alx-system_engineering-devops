@@ -2,24 +2,24 @@
 # installing nginx
 
 package { 'nginx':
-    ensure  => 'installed',
+  ensure => installed,
 }
 
 # file redirecting
 file_line { 'redirecting':
-    ensure => 'present',
-    path   => '/etc/nginx/sites-available/default',
-    line   => 'rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;',
-    after  => 'listen 80 defualt_server;',
+  ensure => 'present',
+  path   => '/etc/nginx/sites-available/default',
+  after  => 'listen 80 default_server;',
+  line   => 'rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;',
 }
 
 # file content
-file {'/var/www/html/404.html/index.html':
-    content => 'Hello World!',
+file { '/var/www/html/index.html':
+  content => 'Hello World!',
 }
 
 # restarting nginx
-service {'nginx_start':
-    ensure  => 'running',
-    require => Package['nginx'],
+service { 'nginx':
+  ensure  => running,
+  require => Package['nginx'],
 }
