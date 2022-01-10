@@ -8,8 +8,8 @@ package { 'nginx':
 file_line { 'redirecting':
     ensure => 'present',
     path   => '/etc/nginx/sites-available/default',
-    line   => 'rewrite ^ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent',
-    port   =>  80,
+    line   => 'rewrite ^ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;',
+    after   =>  'listen 80 defualt_server;',
 }
 
 file {'/var/www/html/404.html/index.html':
