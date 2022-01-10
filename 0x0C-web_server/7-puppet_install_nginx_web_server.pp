@@ -1,5 +1,6 @@
 # setting up nginx enviroment
 # installing nginx
+
 package { 'nginx':
     ensure  => 'installed',
 }
@@ -8,7 +9,7 @@ package { 'nginx':
 file_line { 'redirecting':
     ensure => 'present',
     path   => '/etc/nginx/sites-available/default',
-    line   => 'rewrite ^ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;',
+    line   => 'rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;',
     after  => 'listen 80 defualt_server;',
 }
 
