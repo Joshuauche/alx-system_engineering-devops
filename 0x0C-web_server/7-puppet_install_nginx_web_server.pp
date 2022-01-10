@@ -1,6 +1,9 @@
+# install nginx
+include stdlib
 package { 'nginx':
     ensure  =>  'installed',
 }
+
 
 file_line { 'redirecting':
     ensure => 'present',
