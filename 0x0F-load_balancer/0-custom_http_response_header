@@ -36,6 +36,6 @@ new_string=\
         }
 }"
 sudo chmod 777 /var/www/html/
-sudo echo -e "$new_string" > /etc/nginx/sites-available/default
+sudo bash -c "echo -e '$new_string' > /etc/nginx/sites-available/default"
 echo "Ceci n'est pas une page" > /var/www/html/404.html
 sudo service nginx restart
