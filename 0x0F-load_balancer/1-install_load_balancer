@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+sudo apt update -y
+sudo apt-get install --no-install-recommends software-properties-common
+sudo add-apt-repository ppa:vbernat/haproxy-2.4
+sudo apt-get install haproxy=2.4.\*
+
+Haproxy_config=\
+"
+global
+    deamon
+    maxconn 256
+
+defaults
+    mode http
+    timeout connect 5000ms
+    timeout client 5000ms
+    timeout server 5000ms
+
+frontend uchechukwu.tech
+    bind *:80
+    default_backend servers
+
+backend servers
+    server server1 34.138.172.143
+    server server2 	3.234.217.120
+"
+sudo service haproxy restart
