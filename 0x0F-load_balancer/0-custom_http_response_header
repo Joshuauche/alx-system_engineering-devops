@@ -2,7 +2,7 @@
 # steps involved in installing ngix to running of curl command on the localhost
 sudo apt-get -y update
 sudo apt-get install nginx -y
-sudo ufw allow "Nginx HTPP"
+sudo ufw allow "Nginx HTTP"
 sudo ufw enable
 sudo chmod 777 index.nginx-debian.html
 echo "Hello World!" > /var/www/html/index.nginx-debian.html
