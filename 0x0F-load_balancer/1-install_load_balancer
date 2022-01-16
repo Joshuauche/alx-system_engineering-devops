@@ -24,4 +24,5 @@ backend servers
     server server1 34.138.172.143
     server server2 	3.234.217.120
 "
+echo Haproxy_config > /etc/haproxy/haproxy.cfg
 sudo service haproxy restart
