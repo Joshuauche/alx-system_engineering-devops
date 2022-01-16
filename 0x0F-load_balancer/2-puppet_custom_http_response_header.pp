@@ -1,14 +1,15 @@
 # setting up creating a custom HTTP header response
 
-exec { 'apt update'
+exec { 'apt_update':
     command => 'usr/bin/apt-get update',
 }
 
 package { 'nginx':
-    ensure  => 'installed',
+    ensure  => installed,
+    require => Exec['apt_update'],
 }
 
-file_line { 'http_response':
+file_line {'http_response':
     ensure => 'present',
     path   => '/etc/nginx/sites-available/default',
     after  => 'listen 80 default_server',
