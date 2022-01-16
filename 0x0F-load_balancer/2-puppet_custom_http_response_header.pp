@@ -1,7 +1,11 @@
 # setting up creating a custom HTTP header response
 
+exec { 'apt update'
+    command => 'usr/bin/apt-get update',
+}
+
 package { 'nginx':
-    ensure  => installed,
+    ensure  => 'installed',
 }
 
 file_line { 'http_response':
@@ -24,6 +28,6 @@ file { 'content_inside':
 }
 
 service { 'nginx':
-    ensure  => running,
+    ensure  => 'running',
     require => Package['nginx'],
 }
