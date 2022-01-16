@@ -4,17 +4,10 @@ exec { 'apt-update':
     command => '/usr/bin/apt-get update',
 }
 
+# installing nginx
 package { 'nginx':
     ensure  => installed,
     require => Exec['apt-update'],
-}
-
-file_line { 'http_response':
-    ensure  => 'present',
-    path    => '/etc/nginx/sites-available/default',
-    after   => 'listen 80 default_server',
-    line    => 'add_header X-Served-By $hostname;',
-    require => Package['nginx'],
 }
 
 file_line { 'redirecting':
@@ -25,11 +18,22 @@ file_line { 'redirecting':
     require => Package['nginx'],
 }
 
+# custom header response
+file_line { 'http_response':
+    ensure  => present,
+    path    => '/etc/nginx/sites-available/default',
+    after   => 'listen 80 default_server',
+    line    => 'add_header X-Served-By $hostname;',
+    require => Package['nginx'],
+}
+
+# write into file
 file { 'contain':
     content => 'Holberton School',
     require => Package['nginx'],
 }
 
+# restart nginx
 service { 'nginx':
     ensure  => 'running',
     require => Package['nginx'],
