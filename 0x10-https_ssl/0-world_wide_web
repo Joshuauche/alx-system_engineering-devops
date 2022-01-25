@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# configuring the domain zone
+DomainParam () {
+    SUB_DOMAIN=$(dig "$2"."$1" | grap -A1 'ANSWER SECTION:' | grep -v 'ANSWER SECTION:')
+    RECORD_TYPE=$(echo "$SUB_DOMAIN" | awk '{print $4}')
+    DESTINATION=$(echo "$SUB_DOMAIN" | awk '{print $5}')
+    echo "The subdomain $2 is a $RECORD_TYPE record and points to $DESTINATION"
+}
+
+if (( $# == 2 ))
+then
+    DomainParam "$1" "$2"
+elif (( $# == 1 ))
+then
+    DomainParam "$1" "www"
+    DomainParam "$1" "lb-01"
+    DomainParam "$1" "web-01"
+    DomainParam "$1" "web-02"
+fi
