@@ -18,6 +18,7 @@ COMMIT
 :ufw-before-output - [0:0]
 :ufw-before-forward - [0:0]
 :ufw-not-local - [0:0]
+-F
 
 # don't delete the 'COMMIT' line or these rules won't be processed
 COMMIT
