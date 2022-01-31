@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# script that print whoami with command argument
+if [ "$#" -gt 0 ];
+then
+	echo "$1"
+else
+	echo "$USER"
+fi
