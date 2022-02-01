@@ -6,6 +6,6 @@ sudo service nginx stop
 sed -i -E 's/#user.+\;/user nginx;/' /etc/nginx/nginx.conf
 sed -i 's/80/8080/' /etc/nginx/sites-available/default
 chown nginx:nginx /etc/nginx/ -R
-chmod u+x /etc/nginx.conf
+chmod 644 /etc/nginx.conf
 pkill apache
 sudo nginx service nginx start
